@@ -1,35 +1,32 @@
-package prevoz;
-
-import java.util.ArrayList;
+package pozoriste;
 
 public class Test {
 
 	public static void main(String[] args) {
 
-		// Putnik [] putnici = new Putnik [];
-		Vozac vozac = new Vozac("Marko", "Markovic", "sofer");
-		Autobus A1 = new Autobus("AutoKodeks", 800, 5);
-		Autobus A2 = new Autobus("Lasta", 600, 20);
+		Pozoriste p = new Pozoriste("Slavija");
 
-		Putnik p1 = new Putnik("Pera", "Peric", 1000);
-		Putnik p2 = new Putnik("Zika", "Zikic", 1500);
-		Putnik p3 = new Putnik("Ana", "Anic", 100);
-		Putnik p4 = new Putnik("Marija", "Markovic", 1000);
+		Glumac g1 = new Glumac("Zika Zikic", p, "negativac");
+		Glumac g2 = new Glumac("Petar Petrovic", p, "glavna uloga");
+		Glumac g3 = new Glumac("Andrea Ivanovic", p, "sporedna uloga");
 
-		System.out.println(p3.dodajNovac(1200)); // ako je true, dodat je novac uspesno;
-		System.out.println(p4.dodajNovac(800)); // ako je true, putnik je uspesno izgubio novac prilikom ukrcavanja
+		Reditelj r1 = new Reditelj("Marko Markovic", p, "Strogi");
 
-		A1.dodajVozaca(vozac);
-		A1.dodajPutnika(p1);
-		A1.dodajPutnika(p3);
-		A1.dodajPutnika(p4);
-		System.out.println(A1.toString());
+		Predstava p1 = new Predstava("Tvrdjava", p);
 
-		System.out.println(p4.oduzmiNovac(800));// ako je true, naplaceno je uspesno;
-		A1.naplataKarte();
+		p1.zaposleni.add(g1);
+		p1.zaposleni.add(g2);
+		p1.zaposleni.add(g3);
+		p1.zaposleni.add(r1);
 
-		A2.dodajPutnika(p2);
-		A2.naplataKarte();
+		System.out.println("Glumac: " + g1.ispis());
+		System.out.println();
+		System.out.println("Reditelj: " + r1.ispis());
+		System.out.println();
+		System.out.println("Pozoriste: " + p.ispis());
+		System.out.println();
+		System.out.println("Ispis predstave:  \n");
+		System.out.println(p1.toString());
 
 	}
 
